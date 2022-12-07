@@ -1,4 +1,10 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue-demi'
+import AppElement from './App.vue'
+import pluginInstall from "./plugins";
 
-createApp(App).mount('#app')
+(() => {
+    const app = createApp(AppElement);
+    app.use(pluginInstall);
+    app.mount('#app');
+    return app;
+})()
